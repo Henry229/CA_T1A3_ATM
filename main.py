@@ -10,6 +10,10 @@ from modules import transactions
 print('=== < ATM Applicatoin > ====')
 
 menu_id = []
+# for making Table
+field_names = []
+add_row = []
+
 # Set user data
 user_data = {'pin_no': 1234, 'usr_amount': 10000}
 # design manu
@@ -52,7 +56,7 @@ if __name__ == '__main__':
     else:
         print(' You have entered wrong PIN number, Please check your PIN.')
         exit()
-
+    # withdrawal
     if input_id == '1':
         wd = transactions.Withdraw('1', user_data['usr_amount'])
         # input amount of withdrawal
@@ -61,11 +65,20 @@ if __name__ == '__main__':
         amt_bl = wd.check_amount(amt_wd)
         # update balance
         user_data['usr_amount'] = amt_bl
+        # create receipt
+        field_names.append("['Transaction', 'Amount']")
+        add_row.append("['Withdrawal', {amt_wd}], ['Balance', {amt_bl}]")
+        title = '<<< Receipt >>>'
+        wd.receipt(field_names, add_row, title)
         # print balance
         wd.display_balance(amt_bl, amt_wd)
-
+    # deposit
     elif input_id == '2':
-        pass
+        dp = transactions.Deposit('2', user_data['usr_amount'])
+        # amount of deposit
+        amt_dp = dp.input_amount('2')
+        # confrim amount of deposit & deposit
+        dp.chk_amount(amt_dp)
     elif input_id == '3':
         pass
     elif input_id == '4':

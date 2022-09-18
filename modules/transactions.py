@@ -34,8 +34,9 @@ class Transactions:
                 input_amount = input('Type your sending amount  : ')
             else:
                 print('Something went wrong!!')
-            print(type(input_amount))
-            # chack input (input only number)
+            print(type(input_amount))  # 반드시 지울 것!!!!!
+
+            # check input (input only number)
             if input_amount.strip().isdigit():
                 break
             else:
@@ -52,6 +53,14 @@ class Transactions:
             print('Insufficient amount!!')
         return sub
 
+    def receipt(self, field_names, add_row, title):
+        table_x = PrettyTable()
+        table_x.field_names = field_names
+        for i in add_row:
+            table_x.add_row([i])
+        # table_x.field_names = ['', 'Balance']
+        print(table_x.get_string(title=title))
+
     def display_balance(self, bal, amt):
         receipt()
         print('========================')
@@ -64,4 +73,19 @@ class Withdraw(Transactions):
         Transactions.__init__(self, input_id, usr_amount)
         print('<<< You selected Withdrawal Transaction >>>')
 
-    # def
+
+class Deposit(Transactions):
+    def __init__(self, input_id, usr_amount):
+        Transactions.__init__(self, input_id, usr_amount)
+        print('<<< You selected Deposit Transaction >>>')
+
+    def chk_amount(self, amt):
+        while True:
+            pickup = input(f'Is ${amt} correct? (Y/N)').lower()
+            if pickup == 'y':
+                print('Please wait....')
+                time_interval()
+                print(f"${amt} has deposited")
+                break
+            else:
+                print('You have to enter either Y or N!!')
