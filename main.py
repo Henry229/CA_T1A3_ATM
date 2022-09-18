@@ -61,6 +61,8 @@ if __name__ == '__main__':
         amt_bl = wd.check_amount(amt_wd)
         # update balance
         user_data['usr_amount'] = amt_bl
+        # print balance
+        wd.display_balance(amt_bl, amt_wd)
 
     elif input_id == '2':
         pass

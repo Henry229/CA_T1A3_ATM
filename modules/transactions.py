@@ -1,11 +1,22 @@
 from time import sleep
+# import prettytable module
+from prettytable import PrettyTable
 
 
 def time_interval():
     i = 0
-    while i < 10:
+    while i < 8:
         i += 1
         sleep(0.2)
+
+
+def receipt():
+    table_x = PrettyTable()
+    table_x.field_names = ['Transaction', 'Amount']
+    table_x.add_row(['Withdrawal', '$200'])
+    # table_x.field_names = ['', 'Balance']
+    table_x.add_row(['Balance', '$9800'])
+    print(table_x.get_string(title='<<< Receipt >>>'))
 
 
 class Transactions:
@@ -40,6 +51,12 @@ class Transactions:
         else:
             print('Insufficient amount!!')
         return sub
+
+    def display_balance(self, bal, amt):
+        receipt()
+        print('========================')
+        print(f'Your balance is ${bal}')
+        print('========================')
 
 
 class Withdraw(Transactions):
