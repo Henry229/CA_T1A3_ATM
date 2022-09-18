@@ -5,10 +5,13 @@
 from prettytable import PrettyTable
 # import transaction modules
 from modules import authentication
+from modules import transactions
 
 print('=== < ATM Applicatoin > ====')
 
 menu_id = []
+# Set user data
+user_data = {'pin_no': 1234, 'usr_amount': 10000}
 # design manu
 
 
@@ -28,7 +31,7 @@ def transaction_menu():
 # transaction_menu()
 if __name__ == '__main__':
     # verify identification
-    next_step = authentication.verity_identification()
+    next_step = authentication.verity_identification(user_data['pin_no'])
     # if PIN is correct?
     if next_step:
         while True:
@@ -49,3 +52,23 @@ if __name__ == '__main__':
     else:
         print(' You have entered wrong PIN number, Please check your PIN.')
         exit()
+
+    if input_id == '1':
+        wd = transactions.Withdraw('1', user_data['usr_amount'])
+        # input amount of withdrawal
+        amt_wd = wd.input_amount('1')
+        # check balance
+        amt_bl = wd.check_amount(amt_wd)
+        # update balance
+        user_data['usr_amount'] = amt_bl
+
+    elif input_id == '2':
+        pass
+    elif input_id == '3':
+        pass
+    elif input_id == '4':
+        pass
+    elif input_id == '5':
+        pass
+    else:
+        pass
