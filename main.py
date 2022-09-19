@@ -11,8 +11,8 @@ print('=== < ATM Applicatoin > ====')
 
 menu_id = []
 # for making Table
-field_names = []
-add_row = []
+# field_names = []
+# add_row = []
 
 # Set user data
 user_data = {'pin_no': 1234, 'usr_amount': 10000}
@@ -56,29 +56,43 @@ if __name__ == '__main__':
     else:
         print(' You have entered wrong PIN number, Please check your PIN.')
         exit()
+    #===========#
     # withdrawal
+    #===========#
     if input_id == '1':
         wd = transactions.Withdraw('1', user_data['usr_amount'])
         # input amount of withdrawal
         amt_wd = wd.input_amount('1')
-        # check balance
-        amt_bl = wd.check_amount(amt_wd)
+        # check balance for deduction
+        amt_bl = wd.check_balance(amt_wd)
         # update balance
         user_data['usr_amount'] = amt_bl
         # create receipt
-        field_names.append("['Transaction', 'Amount']")
-        add_row.append("['Withdrawal', {amt_wd}], ['Balance', {amt_bl}]")
+        # making parameters for receipt
+        field_names = ['Transaction', 'Amount']
+        add_row = ['Withdrawal', '$'+amt_wd]
         title = '<<< Receipt >>>'
         wd.receipt(field_names, add_row, title)
-        # print balance
+        # display balance
         wd.display_balance(amt_bl, amt_wd)
+    #===========#
     # deposit
+    #===========#
     elif input_id == '2':
         dp = transactions.Deposit('2', user_data['usr_amount'])
         # amount of deposit
         amt_dp = dp.input_amount('2')
         # confrim amount of deposit & deposit
         dp.chk_amount(amt_dp)
+        # add amount of deposit to balance
+        amt_bl = dp.check_balance(amt_dp)
+        # create receipt
+        field_names = ['Transaction', 'Amount']
+        add_row = ['Deposit', '$'+amt_dp]
+        title = '<<< Receipt >>>'
+        dp.receipt(field_names, add_row, title)
+        # diplay balance
+        dp.display_balance(amt_bl, amt_dp)
     elif input_id == '3':
         pass
     elif input_id == '4':

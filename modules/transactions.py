@@ -43,26 +43,26 @@ class Transactions:
                 print(f'Wrong Amount {input_amount}')
         return input_amount
 
-    def check_amount(self, amt):
-        sub = self.usr_amount - int(amt)
-        if sub > 0:
-            print('Please wait')
-            time_interval()
-            print(f"${amt} has been withdrawn")
-        else:
-            print('Insufficient amount!!')
-        return sub
+    def check_balance(self, amt):
+        if self.input_id == '1':
+            tot = self.usr_amount - int(amt)
+            if tot > 0:
+                print('Please wait')
+                time_interval()   # making interval looking real transactions
+                print(f"${amt} has been withdrawn")
+            else:
+                print('Insufficient amount!!')
+        elif self.input_id == '2':
+            tot = self.usr_amount + int(amt)
+        return tot
 
     def receipt(self, field_names, add_row, title):
         table_x = PrettyTable()
         table_x.field_names = field_names
-        for i in add_row:
-            table_x.add_row([i])
-        # table_x.field_names = ['', 'Balance']
+        table_x.add_row(add_row)
         print(table_x.get_string(title=title))
 
     def display_balance(self, bal, amt):
-        receipt()
         print('========================')
         print(f'Your balance is ${bal}')
         print('========================')
@@ -84,7 +84,7 @@ class Deposit(Transactions):
             pickup = input(f'Is ${amt} correct? (Y/N)').lower()
             if pickup == 'y':
                 print('Please wait....')
-                time_interval()
+                time_interval()  # making interval looking real transactions
                 print(f"${amt} has deposited")
                 break
             else:
