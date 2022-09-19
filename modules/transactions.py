@@ -43,13 +43,16 @@ class Transactions:
                 print(f'Wrong Amount {input_amount}')
         return input_amount
 
-    def check_balance(self, amt):
-        if self.input_id == '1':
+    def check_balance(self, amt, acc_tr):
+        if self.input_id == '1' or self.input_id == '3':
             tot = self.usr_amount - int(amt)
             if tot > 0:
-                print('Please wait')
-                time_interval()   # making interval looking real transactions
-                print(f"${amt} has been withdrawn")
+                if self.input_id == '1':
+                    print('Please wait')
+                    time_interval()   # making interval looking real transactions
+                    print(f"${amt} has been withdrawn")
+                elif self.input_id == '3':
+                    print(f"${amt} will be trasferred to account no {acc_tr}")
             else:
                 print('Insufficient amount!!')
         elif self.input_id == '2':
@@ -85,7 +88,34 @@ class Deposit(Transactions):
             if pickup == 'y':
                 print('Please wait....')
                 time_interval()  # making interval looking real transactions
-                print(f"${amt} has deposited")
+                if self.input_id == '2':
+                    print(f"${amt} has deposited")
+                    break
+                elif self.input_id == '3':
+                    print(f"${amt} has trasferred")
+                    break
+            else:
+                if pickup == 'n':
+                    print(' Please start transaction again after checking amount..')
+                    break
+                else:
+                    print('You have to enter either Y or N!!')
+
+
+class Transfer(Deposit, Transactions):
+    def __init__(self, input_id, usr_amount):
+        Deposit.__init__(self, input_id, usr_amount)
+        Transactions.__init__(self, input_id, usr_amount)
+        print('<<< You selected Trasfer Transaction >>>')
+
+    def input_bankdetails(self):
+        while True:
+            bsb = input('Enter BSB number you want to transfer :')
+            account_no = input('Enter account number you want to transfer :')
+            # check input (input only number)
+            if bsb.strip().isdigit() and account_no.strip().isdigit():
                 break
             else:
-                print('You have to enter either Y or N!!')
+                print(
+                    f'Wrong Input {bsb} | {account_no} It should be number!!!')
+        return bsb+'|'+account_no

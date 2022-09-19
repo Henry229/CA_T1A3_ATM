@@ -60,11 +60,12 @@ if __name__ == '__main__':
     # withdrawal
     #===========#
     if input_id == '1':
+        amt_bl = 0
         wd = transactions.Withdraw('1', user_data['usr_amount'])
         # input amount of withdrawal
         amt_wd = wd.input_amount('1')
         # check balance for deduction
-        amt_bl = wd.check_balance(amt_wd)
+        amt_bl = wd.check_balance(amt_wd, 0)
         # update balance
         user_data['usr_amount'] = amt_bl
         # create receipt
@@ -79,6 +80,7 @@ if __name__ == '__main__':
     # deposit
     #===========#
     elif input_id == '2':
+        amt_bl = 0
         dp = transactions.Deposit('2', user_data['usr_amount'])
         # amount of deposit
         amt_dp = dp.input_amount('2')
@@ -93,8 +95,31 @@ if __name__ == '__main__':
         dp.receipt(field_names, add_row, title)
         # diplay balance
         dp.display_balance(amt_bl, amt_dp)
+    #===========#
+    # transfer
+    #===========#
     elif input_id == '3':
-        pass
+        amt_bl = 0
+        tr = transactions.Transfer('3', user_data['usr_amount'])
+        # input account number you want to transfer
+        acc_tr = tr.input_bankdetails()
+        # amount of transfer
+        amt_tr = tr.input_amount('3')
+        # check balance if transfer is possible
+        amt_bl = tr.check_balance(amt_tr, acc_tr)
+        if amt_bl > 0:
+            tr.chk_amount(amt_tr)
+        # else에 대한 로직 추가!!!!!
+         # create receipt
+        field_names = ['Transaction', 'Amount']
+        add_row = ['Transfer', '$'+amt_tr]
+        title = '<<< Receipt >>>'
+        tr.receipt(field_names, add_row, title)
+        # diplay balance
+        tr.display_balance(amt_bl, amt_tr)
+     #===========#
+    # Check Balance
+    #===========#
     elif input_id == '4':
         pass
     elif input_id == '5':
