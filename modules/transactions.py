@@ -119,3 +119,9 @@ class Transfer(Deposit, Transactions):
                 print(
                     f'Wrong Input {bsb} | {account_no} It should be number!!!')
         return bsb+'|'+account_no
+
+
+class Check_balance(Transactions):
+    def __init__(self, input_id, usr_amount):
+        Transactions.__init__(self, input_id, usr_amount)
+        print('<<< You selected Check-Balance Transaction >>>')

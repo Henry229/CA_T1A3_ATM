@@ -121,8 +121,10 @@ if __name__ == '__main__':
     # Check Balance
     #===========#
     elif input_id == '4':
-        pass
+        ck = transactions.Check_balance('4', user_data['usr_amount'])
+        ck.display_balance(user_data['usr_amount'], 0)
     elif input_id == '5':
-        pass
+        print('See you next time! Thank you')
+        exit()
     else:
         pass
