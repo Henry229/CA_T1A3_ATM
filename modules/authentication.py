@@ -7,7 +7,7 @@ def verity_identification(usr_pin):
     print(' Reading your card!! ')
 
     for i in range(1, 4):
-        pin = int(input('Enter your PIN number: '))
+        pin = input('Enter your PIN number: ')
         if pin == usr_pin:
             go_next = True
             print('Welcome John!!!')

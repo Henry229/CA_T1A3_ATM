@@ -1,6 +1,11 @@
 from time import sleep
+from xmlrpc.client import DateTime
 # import prettytable module
 from prettytable import PrettyTable
+# Package Pypi for colored font
+from colorama import Fore, Back, Style
+# get date of today
+import datetime
 
 
 def time_interval():
@@ -34,7 +39,6 @@ class Transactions:
                 input_amount = input('Type your sending amount  : ')
             else:
                 print('Something went wrong!!')
-            print(type(input_amount))  # 반드시 지울 것!!!!!
 
             # check input (input only number)
             if input_amount.strip().isdigit():
@@ -60,6 +64,10 @@ class Transactions:
         return tot
 
     def receipt(self, field_names, add_row, title):
+        print('==========================')
+        today = datetime.datetime.now()
+        print(today.strftime('%x-%X'))
+        print('==========================')
         table_x = PrettyTable()
         table_x.field_names = field_names
         table_x.add_row(add_row)
@@ -74,13 +82,13 @@ class Transactions:
 class Withdraw(Transactions):
     def __init__(self, input_id, usr_amount):
         Transactions.__init__(self, input_id, usr_amount)
-        print('<<< You selected Withdrawal Transaction >>>')
+        print(Back.WHITE + Fore.RED + Style.NORMAL +
+              '<<< You selected Withdrawal Transaction >>>' + Style.RESET_ALL)
 
 
 class Deposit(Transactions):
     def __init__(self, input_id, usr_amount):
         Transactions.__init__(self, input_id, usr_amount)
-        print('<<< You selected Deposit Transaction >>>')
 
     def chk_amount(self, amt):
         while True:
@@ -106,7 +114,8 @@ class Transfer(Deposit, Transactions):
     def __init__(self, input_id, usr_amount):
         Deposit.__init__(self, input_id, usr_amount)
         Transactions.__init__(self, input_id, usr_amount)
-        print('<<< You selected Trasfer Transaction >>>')
+        print(Back.WHITE + Fore.RED + Style.NORMAL +
+              '<<< You selected Trasfer Transaction >>>' + Style.RESET_ALL)
 
     def input_bankdetails(self):
         while True:
@@ -124,4 +133,5 @@ class Transfer(Deposit, Transactions):
 class Check_balance(Transactions):
     def __init__(self, input_id, usr_amount):
         Transactions.__init__(self, input_id, usr_amount)
-        print('<<< You selected Check-Balance Transaction >>>')
+        print(Back.WHITE + Fore.RED + Style.NORMAL +
+              '<<< You selected Check-Balance Transaction >>>' + Style.RESET_ALL)

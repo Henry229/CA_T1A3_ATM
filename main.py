@@ -1,6 +1,8 @@
 # ATM applicatoin
 
-# import sys
+import sys
+# Package Pypi for colored font
+from colorama import Fore, Back, Style
 # import prettytable module
 from prettytable import PrettyTable
 # import transaction modules
@@ -15,7 +17,7 @@ menu_id = []
 # add_row = []
 
 # Set user data
-user_data = {'pin_no': 1234, 'usr_amount': 10000}
+user_data = {'pin_no': '1234', 'usr_amount': 10000}
 # design manu
 
 
@@ -55,7 +57,8 @@ if __name__ == '__main__':
     #  wrong PIN with 3 times
     else:
         print(' You have entered wrong PIN number, Please check your PIN.')
-        exit()
+        sys.exit()
+
     #===========#
     # withdrawal
     #===========#
@@ -81,6 +84,8 @@ if __name__ == '__main__':
     #===========#
     elif input_id == '2':
         amt_bl = 0
+        print(Back.WHITE + Fore.RED + Style.NORMAL +
+              '<<< You selected Deposit Transaction >>>' + Style.RESET_ALL)
         dp = transactions.Deposit('2', user_data['usr_amount'])
         # amount of deposit
         amt_dp = dp.input_amount('2')
