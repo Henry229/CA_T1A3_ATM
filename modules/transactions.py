@@ -39,13 +39,13 @@ class Transactions:
                 elif input_id == '3':
                     input_amount = int(input('Type your sending amount  : '))
                 else:
-                    raise print(f'Something went wrong {input_id}')
+                    print(f'Something went wrong {input_id}')
                 if input_amount > 0:
                     break
                 else:
                     raise ValueError('Please enter an amount greater than zero!! ')
             except ValueError:
-                print('**** What you entered is not number!!****')
+                print('**** What you entered is wrong number!!****')
         return input_amount
 
     def check_balance(self, amt, acc_tr):
@@ -134,3 +134,6 @@ class Check_balance(Transactions):
         Transactions.__init__(self, input_id, usr_amount)
         print(Back.WHITE + Fore.RED + Style.NORMAL +
               '<<< You selected Check-Balance Transaction >>>' + Style.RESET_ALL)
+
+# class ValueError(Exception):
+#     pass
