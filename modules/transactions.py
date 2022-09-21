@@ -74,7 +74,7 @@ class Transactions:
         table_x.add_row(add_row)
         print(table_x.get_string(title=title))
 
-    def display_balance(self, bal, amt):
+    def display_balance(self, bal):
         print('========================')
         print(f'Your balance is ${bal}')
         print('========================')

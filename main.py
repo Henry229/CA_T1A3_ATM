@@ -75,7 +75,7 @@ if __name__ == '__main__':
         title = '<<< Receipt >>>'
         wd.receipt(field_names, add_row, title)
         # display balance
-        wd.display_balance(amt_bl, amt_wd)
+        wd.display_balance(amt_bl)
     #===========#
     # deposit
     #===========#
@@ -96,7 +96,7 @@ if __name__ == '__main__':
         title = '<<< Receipt >>>'
         dp.receipt(field_names, add_row, title)
         # diplay balance
-        dp.display_balance(amt_bl, amt_dp)
+        dp.display_balance(amt_bl)
     #===========#
     # transfer
     #===========#
@@ -118,13 +118,13 @@ if __name__ == '__main__':
         title = '<<< Receipt >>>'
         tr.receipt(field_names, add_row, title)
         # diplay balance
-        tr.display_balance(amt_bl, amt_tr)
+        tr.display_balance(amt_bl)
      #===========#
     # Check Balance
     #===========#
     elif input_id == '4':
         ck = transactions.Check_balance('4', user_data['usr_amount'])
-        ck.display_balance(user_data['usr_amount'], 0)
+        ck.display_balance(user_data['usr_amount'])
     elif input_id == '5':
         print('See you next time! Thank you')
         exit()
