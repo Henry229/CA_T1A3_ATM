@@ -12,9 +12,6 @@ from modules import transactions
 print('=== < ATM Applicatoin > ====')
 
 menu_id = []
-# for making Table
-# field_names = []
-# add_row = []
 
 # Set user data
 user_data = {'pin_no': '1234', 'usr_amount': 10000}
@@ -74,7 +71,7 @@ if __name__ == '__main__':
         # create receipt
         # making parameters for receipt
         field_names = ['Transaction', 'Amount']
-        add_row = ['Withdrawal', '$'+amt_wd]
+        add_row = ['Withdrawal', '$'+str(amt_wd)]
         title = '<<< Receipt >>>'
         wd.receipt(field_names, add_row, title)
         # display balance
@@ -95,7 +92,7 @@ if __name__ == '__main__':
         amt_bl = dp.check_balance(amt_dp)
         # create receipt
         field_names = ['Transaction', 'Amount']
-        add_row = ['Deposit', '$'+amt_dp]
+        add_row = ['Deposit', '$'+str(amt_dp)]
         title = '<<< Receipt >>>'
         dp.receipt(field_names, add_row, title)
         # diplay balance
@@ -117,7 +114,7 @@ if __name__ == '__main__':
         # else에 대한 로직 추가!!!!!
          # create receipt
         field_names = ['Transaction', 'Amount']
-        add_row = ['Transfer', '$'+amt_tr]
+        add_row = ['Transfer', '$'+str(amt_tr)]
         title = '<<< Receipt >>>'
         tr.receipt(field_names, add_row, title)
         # diplay balance

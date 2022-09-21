@@ -31,20 +31,21 @@ class Transactions:
 
     def input_amount(self, input_id):
         while True:
-            if input_id == '1':
-                input_amount = input('Type your withdrawal amount : ')
-            elif input_id == '2':
-                input_amount = input('Type your deposit amount : ')
-            elif input_id == '3':
-                input_amount = input('Type your sending amount  : ')
-            else:
-                print('Something went wrong!!')
-
-            # check input (input only number)
-            if input_amount.strip().isdigit():
-                break
-            else:
-                print(f'Wrong Amount {input_amount}')
+            try:
+                if input_id == '1':
+                    input_amount = int(input('Type your withdrawal amount : '))
+                elif input_id == '2':
+                    input_amount = int(input('Type your deposit amount : '))
+                elif input_id == '3':
+                    input_amount = int(input('Type your sending amount  : '))
+                else:
+                    raise print(f'Something went wrong {input_id}')
+                if input_amount > 0:
+                    break
+                else:
+                    raise ValueError('Please enter an amount greater than zero!! ')
+            except ValueError:
+                print('**** What you entered is not number!!****')
         return input_amount
 
     def check_balance(self, amt, acc_tr):
@@ -114,8 +115,6 @@ class Transfer(Deposit, Transactions):
     def __init__(self, input_id, usr_amount):
         Deposit.__init__(self, input_id, usr_amount)
         Transactions.__init__(self, input_id, usr_amount)
-        print(Back.WHITE + Fore.RED + Style.NORMAL +
-              '<<< You selected Trasfer Transaction >>>' + Style.RESET_ALL)
 
     def input_bankdetails(self):
         while True:
