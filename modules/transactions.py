@@ -118,15 +118,36 @@ class Transfer(Deposit, Transactions):
 
     def input_bankdetails(self):
         while True:
-            bsb = input('Enter BSB number you want to transfer :')
-            account_no = input('Enter account number you want to transfer :')
-            # check input (input only number)
-            if bsb.strip().isdigit() and account_no.strip().isdigit():
-                break
-            else:
-                print(
-                    f'Wrong Input {bsb} | {account_no} It should be number!!!')
-        return bsb+'|'+account_no
+            try:
+                bsb = int(input('Enter BSB number you want to transfer :'))
+                account_no = int(input('Enter account number you want to transfer :'))
+                # check input (input only number)
+                if bsb > 100 and account_no > 100 :
+                    break
+                else:
+                    raise ValueError(
+                        f'Wrong Input {bsb} | {account_no} It should be more than 3 digit!!!')
+            except  ValueError:
+                print('**** What you entered is wrong number!!****')
+
+        return f"{bsb}' | '{account_no}"
+
+        # try:
+        #         if input_id == '1':
+        #             input_amount = int(input('Type your withdrawal amount : '))
+        #         elif input_id == '2':
+        #             input_amount = int(input('Type your deposit amount : '))
+        #         elif input_id == '3':
+        #             input_amount = int(input('Type your sending amount  : '))
+        #         else:
+        #             print(f'Something went wrong {input_id}')
+        #         if input_amount > 0:
+        #             break
+        #         else:
+        #             raise ValueError('Please enter an amount greater than zero!! ')
+        #     except ValueError:
+        #         print('**** What you entered is wrong number!!****')
+        # return input_amount
 
 
 class Check_balance(Transactions):
