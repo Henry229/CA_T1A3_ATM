@@ -1,3 +1,4 @@
+""" test transfer module"""
 from transactions import Transactions, Transfer
 import pytest
 
@@ -10,11 +11,13 @@ amount = iter([200, 300, 0, 'asdf'])
 
 @pytest.fixture
 def trans():
+    """ delclare instance  with transaction class """
     return Transactions('3', 10000)
 
 
 @pytest.fixture
 def transfer():
+    """ delclare instance  with transaction.transfer class """
     return Transfer('3', 10000)
 
 # test input bsb 12001, account no 45112
@@ -62,7 +65,3 @@ def test_check_balance(trans):
 
 def test_display_balance(trans):
     trans.display_balance(9800)
-
-    # test_input = Mock(side_effect=input_list)
-    # test_input = Mock(return_value=input_list)
-    # assert test_input == 200

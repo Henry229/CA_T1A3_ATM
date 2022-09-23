@@ -1,3 +1,4 @@
+""" test withdran module"""
 from transactions import Transactions
 import pytest
 
@@ -7,6 +8,7 @@ inputs = iter([200, 300, 0, 'asdf'])
 
 @pytest.fixture
 def trans():
+    """ test case for unittest in widthdraw module"""
     return Transactions('1', 10000)
 
 # test 200, 300
@@ -39,7 +41,3 @@ def test_check_balance(trans):
 
 def test_display_balance(trans):
     trans.display_balance(9800)
-
-    # test_input = Mock(side_effect=input_list)
-    # test_input = Mock(return_value=input_list)
-    # assert test_input == 200

@@ -1,3 +1,4 @@
+""" test deposit module"""
 from transactions import Transactions
 import pytest
 
@@ -7,16 +8,17 @@ inputs = iter([200, 300, 0, 'asdf'])
 
 @pytest.fixture
 def trans():
+    """ test case for unittest in deposit module"""
     return Transactions('2', 10000)
 
 
-# test 200, 300
+# test deposit amount 200, 300 for inputs
 def test_input_deposit_amount(trans, monkeypatch):
     monkeypatch.setattr('builtins.input', lambda prompt: next(inputs))
     assert trans.input_amount('2') == 200
     assert trans.input_amount('2') == 300
 
-# test 0, 'asdf'
+# test deposit amount  with 0, 'asdf' for varifying odds values
 
 
 def test_input_deposit_amount_odds(trans, monkeypatch):
@@ -36,7 +38,3 @@ def test_check_balance(trans):
 
 def test_display_balance(trans):
     trans.display_balance(10200)
-
-    # test_input = Mock(side_effect=input_list)
-    # test_input = Mock(return_value=input_list)
-    # assert test_input == 200
