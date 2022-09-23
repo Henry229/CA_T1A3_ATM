@@ -34,7 +34,7 @@ class Transactions:
         self.usr_amount = usr_amount
 
     def input_amount(self, input_id):
-        """ getting input amoount for relavant transaction"""
+        """ getting input amoount for relevant transaction"""
         while True:
             try:
                 if input_id == '1':

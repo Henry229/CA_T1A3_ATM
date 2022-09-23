@@ -1,4 +1,5 @@
-# ATM applicatoin
+""" ATM application"""
+# ATM application
 
 import sys
 # Package Pypi for colored font
@@ -19,6 +20,7 @@ user_data = {'pin_no': '1234', 'usr_amount': 10000}
 
 
 def transaction_menu():
+    """ show main menu for choosing transactions using prettytable"""
     table_x = PrettyTable()
     table_x.field_names = ['Transaction ID', 'Transaction Type']
     table_x.add_row(['1', 'Withdrawal'])
@@ -27,16 +29,16 @@ def transaction_menu():
     table_x.add_row(['4', 'Balance'])
     table_x.add_row(['5', 'Cancel Transaction'])
     print(table_x.get_string(title='<<< Select a transaction >>>'))
-    for id, menu in table_x.rows:
-        menu_id.append(id)
+    for key, menu in table_x.rows:
+        menu_id.append(key)
 
 
 # transaction_menu()
 if __name__ == '__main__':
     # verify identification
-    next_step = authentication.verity_identification(user_data['pin_no'])
+    NEXT_STEP = authentication.verity_identification(user_data['pin_no'])
     # if PIN is correct?
-    if next_step:
+    if NEXT_STEP:
         while True:
             transaction_menu()
             # ask a client to enter the menu id
@@ -60,27 +62,27 @@ if __name__ == '__main__':
     # withdrawal
     #===========#
     if input_id == '1':
-        amt_bl = 0
+        AMT_BL = 0
         wd = transactions.Withdraw('1', user_data['usr_amount'])
         # input amount of withdrawal
         amt_wd = wd.input_amount('1')
         # check balance for deduction
-        amt_bl = wd.check_balance(amt_wd, 0)
+        AMT_BL = wd.check_balance(amt_wd, 0)
         # update balance
-        user_data['usr_amount'] = amt_bl
+        user_data['usr_amount'] = AMT_BL
         # create receipt
         # making parameters for receipt
         field_names = ['Transaction', 'Amount']
-        add_row = ['Withdrawal', '$'+str(amt_wd)]
-        title = '<<< Receipt >>>'
-        wd.receipt(field_names, add_row, title)
+        add_row = ['Withdrawal', '$' + str(amt_wd)]
+        TITLE = '<<< Receipt >>>'
+        wd.receipt(field_names, add_row, TITLE)
         # display balance
-        wd.display_balance(amt_bl)
+        wd.display_balance(AMT_BL)
     #===========#
     # deposit
     #===========#
     elif input_id == '2':
-        amt_bl = 0
+        AMT_BL = 0
         print(Back.WHITE + Fore.RED + Style.NORMAL +
               '<<< You selected Deposit Transaction >>>' + Style.RESET_ALL)
         dp = transactions.Deposit('2', user_data['usr_amount'])
@@ -89,37 +91,37 @@ if __name__ == '__main__':
         # confrim amount of deposit & deposit
         dp.chk_amount(amt_dp)
         # add amount of deposit to balance
-        amt_bl = dp.check_balance(amt_dp, 0)
+        AMT_BL = dp.check_balance(amt_dp, 0)
         # create receipt
         field_names = ['Transaction', 'Amount']
-        add_row = ['Deposit', '$'+str(amt_dp)]
-        title = '<<< Receipt >>>'
-        dp.receipt(field_names, add_row, title)
+        add_row = ['Deposit', '$' + str(amt_dp)]
+        TITLE = '<<< Receipt >>>'
+        dp.receipt(field_names, add_row, TITLE)
         # diplay balance
-        dp.display_balance(amt_bl)
+        dp.display_balance(AMT_BL)
     #===========#
     # transfer
     #===========#
     elif input_id == '3':
-        amt_bl = 0
+        AMT_BL = 0
         tr = transactions.Transfer('3', user_data['usr_amount'])
         # input account number you want to transfer
         acc_tr = tr.input_bankdetails()
         # amount of transfer
         amt_tr = tr.input_amount('3')
         # check balance if transfer is possible
-        amt_bl = tr.check_balance(amt_tr, acc_tr)
-        if amt_bl > 0:
+        AMT_BL = tr.check_balance(amt_tr, acc_tr)
+        if AMT_BL > 0:
             tr.chk_amount(amt_tr)
         # else에 대한 로직 추가!!!!!
          # create receipt
         field_names = ['Transaction', 'Amount']
-        add_row = ['Transfer', '$'+str(amt_tr)]
-        title = '<<< Receipt >>>'
-        tr.receipt(field_names, add_row, title)
+        add_row = ['Transfer', '$' + str(amt_tr)]
+        TITLE = '<<< Receipt >>>'
+        tr.receipt(field_names, add_row, TITLE)
         # diplay balance
-        tr.display_balance(amt_bl)
-     #===========#
+        tr.display_balance(AMT_BL)
+    #===========#
     # Check Balance
     #===========#
     elif input_id == '4':
@@ -127,6 +129,6 @@ if __name__ == '__main__':
         ck.display_balance(user_data['usr_amount'])
     elif input_id == '5':
         print('See you next time! Thank you')
-        exit()
+        sys.exit()
     else:
         pass
