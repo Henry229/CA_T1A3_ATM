@@ -71,6 +71,27 @@ class Transactions:
             tot = self.usr_amount + int(amt)
         return tot
 
+    def chk_amount(self, amt):
+        """ confrim money if it is correct before deposit and trasferred"""
+        while True:
+            pickup = input(f'Is ${amt} correct? (Y/N)').lower()
+            if pickup == 'y':
+                print('Please wait....')
+                time_interval()  # making interval looking real transactions
+                if self.input_id == '2':
+                    print(f"${amt} has deposited")
+                    break
+                elif self.input_id == '3':
+                    print(f"${amt} has trasferred")
+                    break
+            else:
+                if pickup == 'n':
+                    print(' Please start transaction again after checking amount..')
+                    break
+                else:
+                    print('You have to enter either Y or N!!')
+        return pickup
+
     def receipt(self, field_names, add_row, title):
         """ print recipients"""
         print('==========================')
@@ -104,32 +125,32 @@ class Deposit(Transactions):
     def __init__(self, input_id, usr_amount):
         Transactions.__init__(self, input_id, usr_amount)
 
-    def chk_amount(self, amt):
-        """ confrim money if it is correct before deposit and trasferred"""
-        while True:
-            pickup = input(f'Is ${amt} correct? (Y/N)').lower()
-            if pickup == 'y':
-                print('Please wait....')
-                time_interval()  # making interval looking real transactions
-                if self.input_id == '2':
-                    print(f"${amt} has deposited")
-                    break
-                elif self.input_id == '3':
-                    print(f"${amt} has trasferred")
-                    break
-            else:
-                if pickup == 'n':
-                    print(' Please start transaction again after checking amount..')
-                    break
-                else:
-                    print('You have to enter either Y or N!!')
+    # def chk_amount(self, amt):
+    #     """ confrim money if it is correct before deposit and trasferred"""
+    #     while True:
+    #         pickup = input(f'Is ${amt} correct? (Y/N) ').lower()
+    #         if pickup == 'y':
+    #             print('Please wait....')
+    #             time_interval()  # making interval looking real transactions
+    #             if self.input_id == '2':
+    #                 print(f"${amt} has deposited")
+    #                 break
+    #             elif self.input_id == '3':
+    #                 print(f"${amt} has trasferred")
+    #                 break
+    #         else:
+    #             if pickup == 'n':
+    #                 print(' Please start transaction again after checking amount..')
+    #                 break
+    #             else:
+    #                 print('You have to enter either Y or N!!')
 
 
-class Transfer(Deposit, Transactions):
+class Transfer(Transactions):
     """class Tranfer Transaction"""
 
     def __init__(self, input_id, usr_amount):
-        Deposit.__init__(self, input_id, usr_amount)
+        # Deposit.__init__(self, input_id, usr_amount)
         Transactions.__init__(self, input_id, usr_amount)
 
     def input_bankdetails(self):
@@ -148,7 +169,7 @@ class Transfer(Deposit, Transactions):
             except ValueError:
                 print('**** What you entered is wrong number!!****')
 
-        return f"{bsb}' | '{account_no}"
+        return f"{bsb} | {account_no}"
 
 
 class CheckBalance(Transactions):

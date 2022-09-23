@@ -36,7 +36,7 @@ def transaction_menu():
 # transaction_menu()
 if __name__ == '__main__':
     # verify identification
-    NEXT_STEP = authentication.verity_identification(user_data['pin_no'])
+    NEXT_STEP = authentication.verify_identification(user_data['pin_no'])
     # if PIN is correct?
     if NEXT_STEP:
         while True:
@@ -112,15 +112,19 @@ if __name__ == '__main__':
         # check balance if transfer is possible
         AMT_BL = tr.check_balance(amt_tr, acc_tr)
         if AMT_BL > 0:
-            tr.chk_amount(amt_tr)
+            reply = tr.chk_amount(amt_tr)
+            if reply == 'y':
+                # create receipt
+                field_names = ['Transaction', 'Amount']
+                add_row = ['Transfer', '$' + str(amt_tr)]
+                TITLE = '<<< Receipt >>>'
+                tr.receipt(field_names, add_row, TITLE)
+                # diplay balance
+                tr.display_balance(AMT_BL)
+            else:
+                print('=== Please start again! ====')
         # else에 대한 로직 추가!!!!!
-         # create receipt
-        field_names = ['Transaction', 'Amount']
-        add_row = ['Transfer', '$' + str(amt_tr)]
-        TITLE = '<<< Receipt >>>'
-        tr.receipt(field_names, add_row, TITLE)
-        # diplay balance
-        tr.display_balance(AMT_BL)
+        # check if amoutn entered is correct
     #===========#
     # Check Balance
     #===========#

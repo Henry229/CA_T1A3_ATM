@@ -4,7 +4,7 @@
 # verify PIN 3 times
 
 
-def verity_identification(usr_pin):
+def verify_identification(usr_pin):
     """ verity identification"""
     print('**** Insert your card ****')
     print(' Reading your card!! ')
