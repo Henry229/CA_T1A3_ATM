@@ -1,9 +1,12 @@
+""" verigy identification """
 # verify identification
 
 # verify PIN 3 times
+
+
 def verity_identification(usr_pin):
+    """ verity identification"""
     print('**** Insert your card ****')
-    # 시간 지체하는 로직 필요!!!!!
     print(' Reading your card!! ')
 
     for i in range(1, 4):

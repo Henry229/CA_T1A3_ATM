@@ -89,7 +89,7 @@ if __name__ == '__main__':
         # confrim amount of deposit & deposit
         dp.chk_amount(amt_dp)
         # add amount of deposit to balance
-        amt_bl = dp.check_balance(amt_dp)
+        amt_bl = dp.check_balance(amt_dp, 0)
         # create receipt
         field_names = ['Transaction', 'Amount']
         add_row = ['Deposit', '$'+str(amt_dp)]
@@ -123,7 +123,7 @@ if __name__ == '__main__':
     # Check Balance
     #===========#
     elif input_id == '4':
-        ck = transactions.Check_balance('4', user_data['usr_amount'])
+        ck = transactions.CheckBalance('4', user_data['usr_amount'])
         ck.display_balance(user_data['usr_amount'])
     elif input_id == '5':
         print('See you next time! Thank you')
