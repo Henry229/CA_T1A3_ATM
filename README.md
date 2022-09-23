@@ -1,7 +1,7 @@
 # ATM application
 ## The purpose of ATM application
 Nowadays, there are many ways to provide convenience to customers when doing bank transactions, 
-such as Internet banking, phone banking, and credit card etc. Among them, ATM (Automatic Talking Machine) is 
+such as Internet banking, phone banking, and credit card etc. Among them, ATM (Automatic Teller Machine) is 
 one of the oldest ways for bank transactions.
 
 This computer, which allows customers to conveniently manage their funds, provides balance checking, withdrawal and deposit, and remittance functions. Some countries offer services such as cash advance services and can even buy stamps.
