@@ -75,6 +75,28 @@ When I did the test, I conducted the test by mixing the **automatic tes**t and t
 
 The target of the manual test is `verify identification`, `balance check`, and `cancel transaction`. It was tested whether the main function of each feature was properly implemented and whether the message was properly output when meet specific condition.
 
-The test suit of each feature is as follows
+The test suits of each feature is as follows.
 
 ![table for test](images/test_case.png)
+
+The part to be tested for each feature was made of  test cases, and it was tested whether each function was properly branched according to the conditional statement, the while loop deviated according to the condition, and the declared variable worked well according to the scope.
+
+----
+
+### Install ATM Application
+
+To use this application, you must follow the steps below in order.
+
+### install Python
+If you do not have Ruby installed on your computer, please go [Pythone.org](https://www.python.org/downloads/) page and then choose your Operating system on your computer. Then download Top on Stable Release. Next, follow the installation instructions.
+
+### Create the virtual environment
+Move to a directory you will install this application. Excute `python -m venv [name of the virtual environment]` (for example python -m venv .venv)
+
+### Activate the virtual environment
+Excute `$ source (venv)/bin/activate`, here `venv` is the directory where the virtual environment is. 
+
+### Excute bash script
+Run -/bashfile.sh -auto. then packages I installed when I made this application will be installed.
+
+### Please enjoy this ATM application
