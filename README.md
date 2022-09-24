@@ -80,12 +80,14 @@ The priority is `priority4`. The duedate was 20/09/2022
 #### Balance Check feature
 ![Trello_balance_check](images/trello_balance.png)
 This feature is the method in Transaction class that used every feature. so the functionality of this transaction had already been verified by other features. So I put just 2 checklists instead 5.
+
 ----
 
 ## Flow Chart
 We often use the flow chart to understand the application structure at a glance. It helps to understand the overall flow of the application by identifying where to use conditional statements and loop statements in the application.
 
 ![flow chart](images/flow_chart.png)
+
 ----
 
 ### Testing
