@@ -25,7 +25,7 @@ def transfer():
 
 def test_input_transfer_bankdetails(transfer, monkeypatch):
     monkeypatch.setattr('builtins.input', lambda prompt: next(inputs))
-    assert transfer.input_bankdetails() == "12001' | '455112"
+    assert transfer.input_bankdetails() == "12001 | 455112"
     # assert transfer.input_bankdetails() == 455112
 
 # test input bsb 0, bsb 'asdf'

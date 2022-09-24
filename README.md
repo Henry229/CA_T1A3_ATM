@@ -62,6 +62,7 @@ You can track my ATM project below link.
 ## Flow Chart
 We often use the flow chart to understand the application structure at a glance. It helps to understand the overall flow of the application by identifying where to use conditional statements and loop statements in the application.
 
+![flow chart](images/flow_chart.png)
 ----
 
 ### Testing
@@ -76,6 +77,4 @@ The target of the manual test is `verify identification`, `balance check`, and `
 
 The test suit of each feature is as follows
 
-| Test Type | Feature | Test Case | Expected Outcome | Actual Result |
-‌
-| --- | --- | --- | --- | --- |
+![table for test](images/test_case.png)
