@@ -57,6 +57,29 @@ You can track my ATM project below link.
 
 ### [Trello](https://trello.com/b/bg9XvBXU/t1a3-atm)
 
+### Implementation plan in Trello 
+![Trello_whole](images/trello_overview.png)
+As mentioned above, I sperate the plan into `To Do`, `Processing`, `Pending`, and `Done`. This capture is made 24th September 2022.
+
+#### Verify Identification feature
+![Trello_verify](images/verify%20identification.png)
+You can checklists, duedate outline of this feature. I gave this `priority 1` in order to make it first.
+
+#### Withdrawal feature
+![Trello_withdrawal](images/trello_withdraw.png)
+As above, I created checklists, duedate to make it easy manage the Implementation plan. This is `priority2`.
+
+#### Deposit feature
+![Trello_deposit](images/trello_deposit.png)
+The priority is `priority3`. I already had it done.
+
+#### Transfer feature
+![Trello_transfer](images/trello_transfer.png)
+The priority is `priority4`. The duedate was 20/09/2022
+
+#### Balance Check feature
+![Trello_balance_check](images/trello_balance.png)
+This feature is the method in Transaction class that used every feature. so the functionality of this transaction had already been verified by other features. So I put just 2 checklists instead 5.
 ----
 
 ## Flow Chart
