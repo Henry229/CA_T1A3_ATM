@@ -90,8 +90,7 @@ if __name__ == '__main__':
         dp = transactions.Deposit('2', user_data['usr_amount'])
         # amount of deposit
         amt_dp = dp.input_amount('2')
-        # confrim amount of deposit & deposit
-        # dp.chk_amount(amt_dp)
+        # confrim amount of deposit
         # add amount of deposit to balance
         AMT_BL = dp.check_balance(amt_dp, 0)
         if AMT_BL > 0:

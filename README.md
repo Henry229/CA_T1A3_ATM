@@ -38,10 +38,10 @@ All transactions will begin with this transaction. If the client has his/her own
 This feature is literally able to withdraw money from your account if you have enough money as much as you can take. To do this, This feature will check the balance first. If a client has enough money you will be given money. Also, you can get a receipt when you complete the transaction. The client makes sure the balance is deducted as much as withdraws.
 
 ### Deposit
-A client can deposit the cash into his/her account. When this transaction is complete, print the balance on the receipt and also check it on the screen. Likewise, The client can get receipt and confirm the balance on the screen. The client can check the added amount of the account.
+A client can deposit the cash into his/her account. When this transaction is completed, print the balance on the receipt and also check it on the screen. Likewise, The client can get receipt and confirm the balance on the screen. The client can check the added amount of the account.
 
 ### Transfer
-A client can deposit the cash into his/her account. When this transaction is complete, print the balance on the receipt and also check it on the screen. Likewise, The client can get receipt and confirm the balance on the screen. The client can check the added amount of the account.
+A client can send friends and family your money immediately. Firstly, you enter bank details of a person who you want to transfer money. Before sending your money, the ATM have to check your balance if you have enough money to transfer. If you have, the trasfer transaction will start soon. The client can get a receipt written your sending amount and also he/she is able to see your balance deducted amount of transfer on the screen.
 
 ### Check balance
 The client can check the balance by choosing this transaction. The client can see how much money is left in his/her account.
@@ -125,3 +125,39 @@ Excute `$ source (venv)/bin/activate`, here `venv` is the directory where the vi
 Run -/bashfile.sh -auto. then packages I installed when I made this application will be installed.
 
 ### Please enjoy this ATM application
+
+----
+### Required Dependencies in ATM Application
+
+#### colorama
+Produce colored terminal text and cursor positioning on Unix, Windows, and Macs. I used this to make the transaction title highlighted.
+
+Reference: https://pypi.org/project/colorama/
+
+#### datetime
+Provide a DateTime date Type. I used it when getting trasaction date and time on the receipt.
+
+Reference: https://pypi.org/project/DateTime/
+
+#### prettytable
+On terminal environmentm, the result of transaction and the receipt provides well-organised table. Thus, it gives the view a feeling of trust and neatness about the results.
+
+Reference: https://pypi.org/project/prettytable/
+
+#### pytest
+Pytest is one of the most popular packages in Python. It makes testing easier so it can contribute to increase productivity.
+
+Reference: https://pypi.org/project/pytest
+
+_____
+
+###  system/hardware requirements
+
+In fact, I'm not sure what sys requirements are needed for runing this ATM application. Instead, I suggeste Phyton System Requirements.
+
+- CPU : intel Pentium 4 2.00GHz or higher
+- Memory: 2GB RAM
+- Operating system: Linux-Ubuntu 16.04 to 17.10 or Windows 7 to 10
+
+
+
