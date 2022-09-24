@@ -68,37 +68,46 @@ if __name__ == '__main__':
         amt_wd = wd.input_amount('1')
         # check balance for deduction
         AMT_BL = wd.check_balance(amt_wd, 0)
-        # update balance
-        user_data['usr_amount'] = AMT_BL
-        # create receipt
-        # making parameters for receipt
-        field_names = ['Transaction', 'Amount']
-        add_row = ['Withdrawal', '$' + str(amt_wd)]
-        TITLE = '<<< Receipt >>>'
-        wd.receipt(field_names, add_row, TITLE)
-        # display balance
-        wd.display_balance(AMT_BL)
+        if AMT_BL > 0:
+            reply = wd.chk_amount(amt_wd)
+            if reply == 'y':
+                # create receipt
+                field_names = ['Transaction', 'Amount']
+                add_row = ['Transfer', '$' + str(amt_wd)]
+                TITLE = '<<< Receipt for Withdrawal >>>'
+                wd.receipt(field_names, add_row, TITLE)
+                # diplay balance
+                wd.display_balance(AMT_BL)
+            else:
+                print('=== Please start again! ====')
+        else:
+            print('Please start transaction again!!')
     #===========#
     # deposit
     #===========#
     elif input_id == '2':
         AMT_BL = 0
-        print(Back.WHITE + Fore.RED + Style.NORMAL +
-              '<<< You selected Deposit Transaction >>>' + Style.RESET_ALL)
         dp = transactions.Deposit('2', user_data['usr_amount'])
         # amount of deposit
         amt_dp = dp.input_amount('2')
         # confrim amount of deposit & deposit
-        dp.chk_amount(amt_dp)
+        # dp.chk_amount(amt_dp)
         # add amount of deposit to balance
         AMT_BL = dp.check_balance(amt_dp, 0)
-        # create receipt
-        field_names = ['Transaction', 'Amount']
-        add_row = ['Deposit', '$' + str(amt_dp)]
-        TITLE = '<<< Receipt >>>'
-        dp.receipt(field_names, add_row, TITLE)
-        # diplay balance
-        dp.display_balance(AMT_BL)
+        if AMT_BL > 0:
+            reply = dp.chk_amount(amt_dp)
+            if reply == 'y':
+                # create receipt
+                field_names = ['Transaction', 'Amount']
+                add_row = ['Deposit', '$' + str(amt_dp)]
+                TITLE = '<<< Receipt for Transfer >>>'
+                dp.receipt(field_names, add_row, TITLE)
+                # diplay balance
+                dp.display_balance(AMT_BL)
+            else:
+                print('=== Please start again! ====')
+        else:
+            print('Please start transaction again!!')
     #===========#
     # transfer
     #===========#
@@ -117,18 +126,21 @@ if __name__ == '__main__':
                 # create receipt
                 field_names = ['Transaction', 'Amount']
                 add_row = ['Transfer', '$' + str(amt_tr)]
-                TITLE = '<<< Receipt >>>'
+                TITLE = '<<< Receipt for Transfer >>>'
                 tr.receipt(field_names, add_row, TITLE)
                 # diplay balance
                 tr.display_balance(AMT_BL)
             else:
                 print('=== Please start again! ====')
-        # else에 대한 로직 추가!!!!!
+        else:
+            print('Please start transaction again!!')
         # check if amoutn entered is correct
     #===========#
     # Check Balance
     #===========#
     elif input_id == '4':
+        print(Back.WHITE + Fore.RED + Style.NORMAL +
+              '<<< check Balance Transaction >>>' + Style.RESET_ALL)
         ck = transactions.CheckBalance('4', user_data['usr_amount'])
         ck.display_balance(user_data['usr_amount'])
     elif input_id == '5':
@@ -136,3 +148,7 @@ if __name__ == '__main__':
         sys.exit()
     else:
         pass
+
+    print('**************************************')
+    print('*** Thank you!  😀  See you again! ***')
+    print('**************************************')
