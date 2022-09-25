@@ -16,14 +16,14 @@ def time_interval():
         sleep(0.2)
 
 
-def receipt():
-    """ print receipt of transaction"""
-    table_x = PrettyTable()
-    table_x.field_names = ['Transaction', 'Amount']
-    table_x.add_row(['Withdrawal', '$200'])
-    # table_x.field_names = ['', 'Balance']
-    table_x.add_row(['Balance', '$9800'])
-    print(table_x.get_string(title='<<< Receipt >>>'))
+# def receipt():
+#     """ print receipt of transaction"""
+#     table_x = PrettyTable()
+#     table_x.field_names = ['Transaction', 'Amount']
+#     table_x.add_row(['Withdrawal', '$200'])
+#     # table_x.field_names = ['', 'Balance']
+#     table_x.add_row(['Balance', '$9800'])
+#     print(table_x.get_string(title='<<< Receipt >>>'))
 
 
 class Transactions:
