@@ -124,10 +124,23 @@ Move to a directory you will install this application. Excute `python -m venv [n
 ### Activate the virtual environment
 Excute `$ source (venv)/bin/activate`, here `venv` is the directory where the virtual environment is. 
 
+### Install packages
+`pip install -r requirements.txt` , You can install packages 
+
 ### Excute bash script
-Run -/bashfile.sh -auto. then packages I installed when I made this application will be installed.
+Run `-/(bashfile).sh -auto`. then packages I installed when I made this application will be installed. (You can create this file name - for example xxxx.sh )
 
 ### Please enjoy this ATM application
+
+In my bash script, I made this process to excute automatically so you just type `./t13_atm.sh` on terminal.
+
+Reference: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+
+bash scripting: https://edstem.org/au/courses/9040/lessons/24167/slides/171038
+
+https://www.taniarascia.com/how-to-create-and-use-bash-scripts/
+
+
 
 ----
 ### Required Dependencies in ATM Application
