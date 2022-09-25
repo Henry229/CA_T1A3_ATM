@@ -15,6 +15,9 @@ I hope this application will be a good opportunity for young children and the el
 ## The link of Github
 [ATM application](https://github.com/Henry229/CA_T1A3_ATM)
 
+## Presentation Clip on YouTube
+https://youtu.be/NhjopFiIVjA
+
 ----
 
 ## Style Guide
@@ -41,7 +44,7 @@ This feature is literally able to withdraw money from your account if you have e
 A client can deposit the cash into his/her account. When this transaction is completed, print the balance on the receipt and also check it on the screen. Likewise, The client can get receipt and confirm the balance on the screen. The client can check the added amount of the account.
 
 ### Transfer
-A client can send friends and family your money immediately. Firstly, you enter bank details of a person who you want to transfer money. Before sending your money, the ATM have to check your balance if you have enough money to transfer. If you have, the trasfer transaction will start soon. The client can get a receipt written your sending amount and also he/she is able to see your balance deducted amount of transfer on the screen.
+A client can send friends and family your money immediately. Firstly, you enter bank details of a person who you want to transfer money. Before sending your money, the ATM have to check your balance if you have enough money to transfer. If you have, the trasfer transaction will be started soon. The client can get a receipt written your sending amount and also he/she is able to see your balance deducted amount of transfer on the screen.
 
 ### Check balance
 The client can check the balance by choosing this transaction. The client can see how much money is left in his/her account.
